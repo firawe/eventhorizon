@@ -92,6 +92,12 @@ func (a *AggregateBase) IncrementVersion() {
 	a.v++
 }
 
+// SetVersion sets the v of the aggregate
+// USE WITH CAUTION! Version conflicts can affect the whole profile!
+func (a *AggregateBase) SetVersion(v int) {
+	a.v = v
+}
+
 // Events implements the Events method of the Aggregate interface.
 func (a *AggregateBase) Events() []eh.Event {
 	return a.events
